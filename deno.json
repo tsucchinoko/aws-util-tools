@@ -1,0 +1,19 @@
+{
+  "tasks": {
+    "create-cognito-user": "deno run --allow-read --allow-net --allow-sys --allow-env --allow-run main.ts create-cognito-user",
+    "build:mac-intel": "mkdir -p ./bin/x86_64-apple-darwin && deno compile --target=x86_64-apple-darwin --output=./bin/x86_64-apple-darwin/aws-util-tools-darwin-x64 --allow-read --allow-net --allow-sys --allow-env --allow-run main.ts",
+    "build:mac-arm": "mkdir -p ./bin/aarch64-apple-darwin && deno compile --target=aarch64-apple-darwin --output=./bin/aarch64-apple-darwin/aws-util-tools-darwin-arm64 --allow-read --allow-net --allow-sys --allow-env --allow-run main.ts",
+    "build:all": "deno task build:mac-intel && deno task build:mac-arm",
+    "check-lock": "deno cache --lock=deno.lock --reload ./main.ts"
+  },
+  "imports": {
+    "@aws-sdk/client-cognito-identity-provider": "npm:@aws-sdk/client-cognito-identity-provider@^3.760.0",
+    "@aws-sdk/client-iam": "npm:@aws-sdk/client-iam@3.758.0",
+    "@cliffy/command": "jsr:@cliffy/command@1.0.0-rc.7",
+    "@std/yaml": "jsr:@std/yaml@^1.0.5",
+    "zod": "npm:zod@^3.24.2"
+  },
+  "compilerOptions": {
+    "types": ["deno"]
+  }
+}

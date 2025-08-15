@@ -1,0 +1,9 @@
+# ユーザープールID
+pool:
+  userPoolId: ap-northeast-1_1234567890
+# 作成するユーザー
+user:
+  username: <your-username>
+  email: <your-email>
+  emailVerified: true
+  password: <your-password>

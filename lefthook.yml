@@ -1,0 +1,7 @@
+pre-push:
+  parallel: true
+  jobs:
+    - run: deno task check-lock
+    - run: deno fmt
+    - run: deno lint --fix
+    - run: deno check **/*.ts
